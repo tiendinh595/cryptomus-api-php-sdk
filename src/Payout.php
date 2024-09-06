@@ -7,12 +7,12 @@ final class Payout
     /**
      * @var RequestBuilder
      */
-    private $requestBuilder;
+    private $__requestBuilder;
 
     /**
      * @var string
      */
-    private $version = 'v1';
+    private $__version = 'v1';
 
     /**
      * @param $payoutKey
@@ -51,5 +51,10 @@ final class Payout
     public function info(array $data)
     {
         return $this->requestBuilder->sendRequest($this->version . '/payout/info', $data);
+    }
+
+    public function services()
+    {
+        return $this->requestBuilder->sendRequest($this->version . '/payout/services');
     }
 }
