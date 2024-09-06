@@ -20,7 +20,7 @@ final class Payout
      */
     public function __construct($payoutKey, $merchantUuid)
     {
-        $this->requestBuilder = new RequestBuilder($payoutKey, $merchantUuid);
+        $this->__requestBuilder = new RequestBuilder($payoutKey, $merchantUuid);
     }
 
     /**
@@ -37,7 +37,7 @@ final class Payout
      */
     public function create(array $data)
     {
-        return $this->requestBuilder->sendRequest($this->version . '/payout', $data);
+        return $this->__requestBuilder->sendRequest($this->__version . '/payout', $data);
     }
 
     /**
@@ -50,11 +50,11 @@ final class Payout
      */
     public function info(array $data)
     {
-        return $this->requestBuilder->sendRequest($this->version . '/payout/info', $data);
+        return $this->__requestBuilder->sendRequest($this->__version . '/payout/info', $data);
     }
 
     public function services()
     {
-        return $this->requestBuilder->sendRequest($this->version . '/payout/services');
+        return $this->__requestBuilder->sendRequest($this->__version . '/payout/services');
     }
 }
